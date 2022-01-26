@@ -9,6 +9,9 @@ el autor del libro y el numero de páginas.
 
 package libro;
 
+import java.util.Locale;
+import java.util.Scanner;
+
 public class Libro {
     
     private String isbn;
@@ -68,11 +71,16 @@ public class Libro {
         return libro;
     }
     
-    public void cargarLibro(String isbn, String titulo, String autor, int nroPag){
-        this.isbn = isbn;
-        this.titulo = titulo;
-        this.autor = autor;
-        this.nroPaginas = nroPag;
+    public void cargarLibro(){
+        Scanner leer = new Scanner(System.in, "ISO-8859-1").useDelimiter("\n").useLocale(Locale.US);
+        System.out.print("ISBN: ");
+        this.isbn = leer.next();
+        System.out.print("Titulo: ");
+        this.titulo = leer.next();
+        System.out.print("Autor: ");
+        this.autor = leer.next();
+        System.out.print("Nº páginas: ");
+        this.nroPaginas = leer.nextInt();
     }
     
     
