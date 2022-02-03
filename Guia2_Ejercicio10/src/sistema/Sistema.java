@@ -17,19 +17,31 @@ public class Sistema {
         // Ejercicio 10
         double[] arregloA = new double[50];
         double[] arregloB = new double[20];
+        double nro = 0.5;
         //imprimir desordenado
-        for(int i=0; i<arregloA.length;i++){
-            arregloA[i]= Math.random() * 11;
-            System.out.printf("%.2f|",arregloA[i]);
-        }
-        System.out.println("");
-        Arrays.sort(arregloA);
+        aleatorioArreglo(arregloA);
+        visualizarArreglo(arregloA);
         //imprimir ordenado
-        for(int i=0; i<arregloA.length;i++){
-            arregloA[i]= Math.random() * 11;
-            System.out.printf("%.2f|",arregloA[i]);
+        Arrays.sort(arregloA);
+        visualizarArreglo(arregloA);
+        //copiar los primeros 10 números ordenados al arreglo B
+        arregloB = Arrays.copyOfRange(arregloA, 0, 20);
+        visualizarArreglo(arregloB);
+        //y rellenar los 10 últimos elementos con el valor 0.5.
+        Arrays.fill(arregloB, 10, 20, nro);
+        visualizarArreglo(arregloB);
+    }
+    
+    private static void visualizarArreglo(double[] arreglo){
+        for(int i=0; i<arreglo.length;i++){
+            System.out.printf("%.2f|",arreglo[i]);
         }
         System.out.println("");
     }
     
+    private static void aleatorioArreglo(double[] arreglo){
+        for(int i=0; i<arreglo.length;i++){
+            arreglo[i]= Math.random() * 11;
+        }
+    }
 }

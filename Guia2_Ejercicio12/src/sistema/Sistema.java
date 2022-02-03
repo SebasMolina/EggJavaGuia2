@@ -17,10 +17,24 @@ anterior.
 */
 package sistema;
 
+import java.util.Locale;
+import java.util.Scanner;
+import persona.Persona;
+
 public class Sistema {
 
     public static void main(String[] args) {
         // Ejercicio 12
+        Scanner leer = new Scanner(System.in, "ISO-8859-1").useDelimiter("\n").useLocale(Locale.US);
+        Persona nuevaPersona = new Persona();
+        nuevaPersona.crearPersona();
+        System.out.print("Ingrese una edad para comparar: ");
+        int edad = leer.nextInt();
+        boolean esMenor = nuevaPersona.esMenorQue(edad);
+        System.out.println(nuevaPersona.getNombre()+" es menor que la edad ingresada? "+ esMenor);
+        nuevaPersona.mostrarPersona();
+        
+        
     }
     
 }

@@ -42,11 +42,7 @@ public class Matematica {
     }
 //• Método devolverMayor() para retornar cuál de los dos atributos tiene el mayor valor    
     public double devolverMayor(){
-        if(numero1>numero2){
-            return numero1;
-        } else {
-            return numero2;
-        }
+        return (Math.max(numero1, numero1));
     }
 //• Método calcularPotencia() para calcular la potencia del mayor valor de la clase
 // elevado al menor número. Previamente se deben redondear ambos valores.
@@ -54,11 +50,9 @@ public class Matematica {
         int resultado;
         numero1= (int) Math.round(numero1);
         numero2 = (int) Math.round(numero2);
-        if (numero1>numero2){
-            resultado = (int) Math.pow(numero1,numero2);
-        } else {
-            resultado = (int) Math.pow(numero2,numero1);
-        }
+        int max = (int) Math.max(numero1, numero2);
+        int min = (int) Math.min(numero1, numero2);
+        resultado = (int) Math.pow(max, min);
         System.out.println("Numero1 redondeado "+ numero1);
         System.out.println("Numero2 redondeado "+ numero2);
         return resultado;
@@ -67,14 +61,9 @@ public class Matematica {
 // Antes de calcular la raíz cuadrada se debe obtener el valor absoluto del número.
     public double calcularRaiz(){
         double absoluto, resultado;
-        if (numero1<numero2){
-            absoluto = Math.abs(numero1);
-        } else {
-            absoluto = Math.abs(numero2);
-        }
+        int min = (int) Math.min(numero1, numero2);
+        absoluto = Math.abs(min);
         resultado = Math.sqrt(absoluto);
         return resultado;
-        
-    }
-    
+    }    
 }
